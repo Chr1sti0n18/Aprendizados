@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+            background-color: lightgray;
+        }
+
+        img[src="http://files.cod3r.com.br/curso-web/logo.png"] {
+            float: left;
+            height: 50px;
+        }
+        
+        .menu-toggle {
+            display: none;
+        }
+
+        @media (max-width: 950px) {
+            .menu-toggle { 
+                display: block;
+                float: right;
+                position: relative;
+                top: 15px;
+                right: 10px;
+                height: 25px;
+                width: 40px;
+                background-color: #3F3C39;
+            }
+            
+            nav {
+                display: none;
+            }
+
+           aside {
+                display: none;
+           }
+        }
+        
+        li a[href="#inicio"] {
+            font-size: 20px;
+            font-family: 'Oswald';
+            text-decoration: none;
+            color: #fff;
+            padding: 18px 25px;
+            display: inline;
+        }
+
+        li a[href="#inicio"]:hover {
+            background-color: #22A9E3;
+            color: #000;
+        }
+
+        li a[href="#cursos"] {
+            font-size: 20px;
+            font-family: 'Oswald';
+            text-decoration: none;
+            color: #fff;
+            padding: 18px 25px;
+            display: inline;
+        }
+
+        li a[href="#cursos"]:hover {
+            background-color: #22A9E3;
+            color: #000;
+        }
+
+        li a[href="#sobre"] {
+            font-size: 20px;
+            font-family: 'Oswald';
+            text-decoration: none;
+            color: #fff;
+            padding: 18px 25px;
+            display: inline;
+        }
+
+        li a[href="#sobre"]:hover {
+            background-color: #22A9E3;
+            color: #000;
+        }
+
+        li a[href="#contato"] {
+            font-size: 20px;
+            font-family: 'Oswald';
+            text-decoration: none;
+            color: #fff;
+            padding: 18px 25px;
+            display: inline;
+        }
+
+        li a[href="#contato"]:hover {
+            background-color: #22A9E3;
+            color: #000;
+        }
+
+        .cabecalho {
+            top: 0px;
+            right: 0px;
+            left: 0px;
+            position: absolute;
+            background-color: #2C2E26;
+            height: 75px;
+            padding: 10px 20px;
+        }
+
+        nav {
+            position: absolute;
+            top: 5px;
+            left: 315px;
+        }
+
+        nav li {
+            display: inline;
+        }
+
+        aside {
+            position: absolute;
+            top: 5px;
+            padding-top: 14px;
+            right: 25px;
+        }
+
+        aside a[href="#login"] {
+            font-size: 20px;
+            font-family: 'Oswald';
+            text-decoration: none;
+            color: #fff;
+            padding: 18px 25px;
+            display: inline;
+        }
+
+        aside a[href="#login"]:hover {
+            background-color: #22A9E3;
+            color: #000;
+        }
+
+        aside a[href="#registrar"] {
+            font-size: 20px;
+            font-family: 'Oswald';
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 25px;
+            display: inline;
+        }
+
+        .botao {
+            border-radius: 45px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+            </a>
+        </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="#inicio">Início</a>
+                </li>
+                <li>
+                    <a href="#cursos">Cursos</a>
+                </li>
+                <li>
+                    <a href="#sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="autenticacao">
+            <a href="#login">Login</a>
+            <a href="#registrar" class="botao destaque">Registrar</a>
+        </aside>
+    </header>
+
+    <script>
+        window.onhashchange(function(e) {
+            const oldURL = e.oldURL.split('#')[1]
+            const newURL = e.newURL.split('#')[1]
+            console.log(oldURL, newURL)
+            const oldLink = document.querySelector(`.menu a[href='#${oldURL}']`)
+            const newLink = document.querySelector(`.menu a[href='#${newURL}']`)
+            oldLink && oldLink.classlist.remove('selected')
+            newLink && newLink.classlist.add('selected')
+        })
+    </script>
+</body>
+
+</html>
